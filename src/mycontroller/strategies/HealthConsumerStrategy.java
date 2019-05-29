@@ -22,7 +22,9 @@ public class HealthConsumerStrategy extends AbstractAutoControllerStrategy imple
     @Override
     public String nextOrientation(CarStateSwitch.CarState state) {
         String currentStr = carController.getPosition();
-        String destinationStr = CarWorldMap.getInstance().getPoint().toString();
+        Coordinate temp_destination = CarWorldMap.getInstance().getPoint();
+        if (temp_destination==null) return "brake";
+        String destinationStr = temp_destination.toString();
         if(currentStr.equals(destinationStr)){
             return "brake";
         }

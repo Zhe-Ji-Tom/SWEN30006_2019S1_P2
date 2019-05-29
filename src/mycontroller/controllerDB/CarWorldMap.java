@@ -43,8 +43,7 @@ public class CarWorldMap {
 
     public Coordinate getPoint(){
         if(path.isEmpty()){
-            path = exitPath;
-            return path.poll();
+            return null;
         }else {
             return path.poll();
         }
